@@ -111,75 +111,9 @@ public class regextrial {
         }
         return text;
     }
-    /**
-     * @author aslıyılmaz
-     * @param grammarly mistaken apostrophe
-     * @return corrected apostrophe
-     */
-    public static String apostrophe(String text) {
-        //Separate ownership
-        //Alice's and John's cars ----> Alice's car and John's car
-        Pattern pat = Pattern.compile("([A-Z]\\w+)'s\\sand\\s([A-Z]\\w+)'s\\s(\\w+)s");
-        Matcher m = pat.matcher(text);
-        text = m.replaceAll("$1's $3 and $2's $3");
-        //Common ownership
-        //Alice's and John's car ----> Alice and John's car
-        pat = Pattern.compile("([A-Z]\\w+)'s\\sand\\s([A-Z]\\w+)'s\\s(\\w+)");
-        m = pat.matcher(text);
-        text = m.replaceAll("$1 and $2's $3");
-        return text;
-    }
-
-    /**
-     * @param Citated sentence
-     * @return Quoted form of the citation
-     * I love Ece. (Aslı, 2021).
-     * @author aslıyılmaz
-     * Aslı says "I love Ece." in 2021.
-     */
-    public static String citation(String text){
-        Pattern p = Pattern.compile("((\\w+\\s)*)\\((\\w+),\\s(\\w+)\\).");
-        Matcher m = p.matcher(text);
-        text=m.replaceAll("$3 says \"$1.\" in $4.");
-        return text;
-    }
-    /**
-     * @author aslıyılmaz
-     * @param windows path
-     * @return unix path
-     */
-    public static String pathConverter(String text) {
-        Pattern pat = Pattern.compile("([A-Z]:)*(\\\\(\\w+)*)");
-        Matcher m = pat.matcher(text);
-        if(m.find()) {
-            String unixPath = "/Volumes/Share";
-            while (m.find()) {
-                unixPath += "/" + m.group(3);
-            }
-            return text+("(for UNIX the path is "+unixPath+")");
-        }
-        return text;
-    }
-
-    /**
-     * @author aslıyılmaz
-     * @param x and y
-     * @return X and Y
-     */
-    public static String concatenation(String text) {
-        Pattern pat = Pattern.compile("([A-Z]\\w+)(\\sand\\s)([A-Z]\\w+)");
-        Matcher m = pat.matcher(text);
-
-        if(m.find()) {
-            text = m.replaceAll(m.group(1).toUpperCase() + " and " + m.group(3).toUpperCase());
-        }
-        return text;
-    }
-
-
-
-
-    /**
+    
+    
+        /**
      * Changes symbol between the numbers as a slash that indicate the date.
      *Input date can be expressed with .(point) or -(hyphen) ,output can be only with slash
      * @author eceozaydın
@@ -251,6 +185,76 @@ public class regextrial {
         m = pat.matcher(text);
         return text;
     }
+
+    
+    /**
+     * @author aslıyılmaz
+     * @param grammarly mistaken apostrophe
+     * @return corrected apostrophe
+     */
+    public static String apostrophe(String text) {
+        //Separate ownership
+        //Alice's and John's cars ----> Alice's car and John's car
+        Pattern pat = Pattern.compile("([A-Z]\\w+)'s\\sand\\s([A-Z]\\w+)'s\\s(\\w+)s");
+        Matcher m = pat.matcher(text);
+        text = m.replaceAll("$1's $3 and $2's $3");
+        //Common ownership
+        //Alice's and John's car ----> Alice and John's car
+        pat = Pattern.compile("([A-Z]\\w+)'s\\sand\\s([A-Z]\\w+)'s\\s(\\w+)");
+        m = pat.matcher(text);
+        text = m.replaceAll("$1 and $2's $3");
+        return text;
+    }
+
+    /**
+     * @param Citated sentence
+     * @return Quoted form of the citation
+     * I love Ece. (Aslı, 2021).
+     * @author aslıyılmaz
+     * Aslı says "I love Ece." in 2021.
+     */
+    public static String citation(String text){
+        Pattern p = Pattern.compile("((\\w+\\s)*)\\((\\w+),\\s(\\w+)\\).");
+        Matcher m = p.matcher(text);
+        text=m.replaceAll("$3 says \"$1.\" in $4.");
+        return text;
+    }
+    /**
+     * @author aslıyılmaz
+     * @param windows path
+     * @return unix path
+     */
+    public static String pathConverter(String text) {
+        Pattern pat = Pattern.compile("([A-Z]:)*(\\\\(\\w+)*)");
+        Matcher m = pat.matcher(text);
+        if(m.find()) {
+            String unixPath = "/Volumes/Share";
+            while (m.find()) {
+                unixPath += "/" + m.group(3);
+            }
+            return text+("(for UNIX the path is "+unixPath+")");
+        }
+        return text;
+    }
+
+    /**
+     * @author aslıyılmaz
+     * @param x and y
+     * @return X and Y
+     */
+    public static String concatenation(String text) {
+        Pattern pat = Pattern.compile("([A-Z]\\w+)(\\sand\\s)([A-Z]\\w+)");
+        Matcher m = pat.matcher(text);
+
+        if(m.find()) {
+            text = m.replaceAll(m.group(1).toUpperCase() + " and " + m.group(3).toUpperCase());
+        }
+        return text;
+    }
+
+
+
+
 
 
 
