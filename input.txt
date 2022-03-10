@@ -1,0 +1,10 @@
+Hi everyone I thats Demir, Ms. Seniz.
+Today I am gonna explain explain how you can design your CV.
+You need to add your full birth date as 01.01.1999 .
+You must add your contact number so that people can reach you (546)-621-3099 .
+Ece's and Asli's CVs are good examples you can take a look .
+Only one percent keep trying upon failure (Musk, 2021).
+you can download cv.png on the wikipedia.com in the given link below.
+You must submit your homework until 21:00 .
+Ece and Asli made the project in love with each other.
+Required files in C:\project\code\main 
